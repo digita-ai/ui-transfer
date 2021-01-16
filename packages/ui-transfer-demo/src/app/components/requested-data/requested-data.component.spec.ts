@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { declarations, imports, providers } from '../../app.module';
-import { LandingPageComponent } from './landing-page.component';
+import { RequestedDataComponent } from './requested-data.component';
 
-describe('LandingPageComponent', () => {
-  let component: LandingPageComponent;
-  let fixture: ComponentFixture<LandingPageComponent>;
+describe('RequestedDataComponent', () => {
+  let component: RequestedDataComponent;
+  let fixture: ComponentFixture<RequestedDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -12,11 +12,11 @@ describe('LandingPageComponent', () => {
       providers,
       declarations,
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LandingPageComponent);
+    fixture = TestBed.createComponent(RequestedDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

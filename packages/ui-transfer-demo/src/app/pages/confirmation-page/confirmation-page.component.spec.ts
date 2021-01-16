@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { imports, providers, declarations } from '../../app.module';
+import { declarations, imports, providers } from '../../app.module';
 import { ConfirmationPageComponent } from './confirmation-page.component';
 
 describe('AppConnectConfirmationPageComponent', () => {

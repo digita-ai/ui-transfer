@@ -15,7 +15,7 @@ export class ConfirmationPageComponent implements OnInit {
   public netAmountAvailable = false;
 
   constructor(
-    private store: Store<{ app: { session: Session, name: string, payslips: PaySlip[] } }>,
+    private store: Store<{ app: { session: Session; name: string; payslips: PaySlip[] } }>,
   ) { }
 
   ngOnInit(): void {

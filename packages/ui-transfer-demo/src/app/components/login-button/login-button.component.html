@@ -1,0 +1,9 @@
+<button mat-flat-button
+    fxFlex fxFlexLayout="row"
+    [routerLink]="['/description']"
+    *ngIf="imgpath && description"
+>
+    <mat-icon fxFlex="24px" aria-hidden="false">keyboard_arrow_right</mat-icon>
+    <div fxFlex>{{this.description}}</div>
+    <img fxFlex="80px" src="{{this.imgpath}}" alt="">
+</button>

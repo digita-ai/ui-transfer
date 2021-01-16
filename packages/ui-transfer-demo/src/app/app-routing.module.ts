@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ConnectPageComponent } from './pages/connect-page/connect-page.component';
 import { DescriptionPageComponent } from './pages/description-page/description-page.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';

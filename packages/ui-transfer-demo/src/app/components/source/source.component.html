@@ -1,0 +1,16 @@
+<div class="source" fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex="40px" fxLayout="row" fxLayoutAlign="center center">
+        <ng-content fxFlex select="img"></ng-content>
+    </div>
+    <div fxFlex fxLayout="column">
+        <div fxFlex>
+            <ng-content select="div.source-header"></ng-content>
+        </div>
+        <div class="sub-header" fxFlex>
+            <ng-content select="div.source-sub-header"></ng-content>
+        </div>
+    </div>
+    <div fxFlex="40px">
+        <ng-content select="button"></ng-content>
+    </div>
+</div>

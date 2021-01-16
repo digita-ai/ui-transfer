@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ModuleWithProviders, NgModule, Type } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -27,17 +26,16 @@ import { EffectsModule } from '@ngrx/effects';
 import { ConfirmationPageComponent } from './pages/confirmation-page/confirmation-page.component';
 import { ConnectionService } from './services/connection.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateModule, TranslateLoader, } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { RequestedDataComponent } from './components/requested-data/requested-data.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
-}
+export const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
+  new TranslateHttpLoader(http);
 
-export const imports: (any[] | Type<any> | ModuleWithProviders<{}>)[] = [
+export const imports: (any[] | Type<any> | ModuleWithProviders<any>)[] = [
   FlexLayoutModule,
   BrowserModule,
   AppRoutingModule,
@@ -48,22 +46,28 @@ export const imports: (any[] | Type<any> | ModuleWithProviders<{}>)[] = [
   MatDividerModule,
   MatIconModule,
   HttpClientModule,
-  StoreModule.forRoot({ app: appReducer }, {
-    runtimeChecks: {
-      strictStateImmutability: false,
-      strictActionImmutability: false,
+  StoreModule.forRoot(
+    { app: appReducer },
+    {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+      },
     },
-  }),
+  ),
   TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
-      useFactory: HttpLoaderFactory,
+      useFactory: httpLoaderFactory,
       deps: [HttpClient],
-    }
+    },
   }),
   EffectsModule.forRoot([AppEffects]),
   StoreRouterConnectingModule.forRoot(),
-  StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+  StoreDevtoolsModule.instrument({
+    maxAge: 25,
+    logOnly: environment.production,
+  }),
 ];
 
 export const declarations = [
@@ -81,9 +85,7 @@ export const declarations = [
   LoginPageComponent,
 ];
 
-export const providers = [
-  ConnectionService,
-];
+export const providers = [ConnectionService];
 
 @NgModule({
   declarations,
@@ -91,7 +93,4 @@ export const providers = [
   providers,
   bootstrap: [AppComponent],
 })
-
-export class AppModule { }
-
-
+export class AppModule {}

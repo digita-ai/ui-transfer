@@ -2,7 +2,8 @@ import { createAction, props } from '@ngrx/store';
 import { Session } from '@inrupt/solid-client-authn-browser';
 import { PaySlip } from './models/payslip.model';
 
-export const ActionTypes = {
+/* eslint @typescript-eslint/naming-convention: 0 */
+export const ACTION_TYPES = {
     CONNECT: '[App] Connect',
     LOAD_PROFILE: '[App] Load profile',
     LOAD_PROFILE_FINISHED: '[App] Load profile finished',
@@ -10,21 +11,21 @@ export const ActionTypes = {
 };
 
 export const connect = createAction(
-    ActionTypes.CONNECT,
-    props<{ session: Session, provider: string }>(),
+    ACTION_TYPES.CONNECT,
+    props<{ session: Session; provider: string }>(),
 );
 
 export const loadProfile = createAction(
-    ActionTypes.LOAD_PROFILE,
+    ACTION_TYPES.LOAD_PROFILE,
     props<{ session: Session }>(),
 );
 
 export const loadProfileFinished = createAction(
-    ActionTypes.LOAD_PROFILE_FINISHED,
-    props<{ name: string, payslips: PaySlip[], session: Session }>(),
+    ACTION_TYPES.LOAD_PROFILE_FINISHED,
+    props<{ name: string; payslips: PaySlip[]; session: Session }>(),
 );
 
 export const saveConsent = createAction(
-    ActionTypes.SAVE_CONSENT,
+    ACTION_TYPES.SAVE_CONSENT,
     props<{ session: Session }>(),
 );

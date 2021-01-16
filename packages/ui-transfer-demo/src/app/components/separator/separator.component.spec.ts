@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { declarations, imports, providers } from '../../app.module';
-import { LandingPageComponent } from './landing-page.component';
+import { SeparatorComponent } from './separator.component';
 
-describe('LandingPageComponent', () => {
-  let component: LandingPageComponent;
-  let fixture: ComponentFixture<LandingPageComponent>;
+describe('SeparatorComponent', () => {
+  let component: SeparatorComponent;
+  let fixture: ComponentFixture<SeparatorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -12,11 +12,11 @@ describe('LandingPageComponent', () => {
       providers,
       declarations,
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LandingPageComponent);
+    fixture = TestBed.createComponent(SeparatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

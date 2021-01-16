@@ -1,5 +1,5 @@
 name: ui-transfer
-version: master
+version: 0.0.9
 nav:
 - modules/ROOT/nav.adoc  
 - modules/functional-analysis/nav.adoc  

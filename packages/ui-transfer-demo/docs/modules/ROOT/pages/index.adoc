@@ -1,12 +1,12 @@
-= Page Title
+= Introduction
 :description: A description of the page stored in an HTML meta tag.
 :sectanchors:
-:url-repo: https://github.com/digita-ai/dgt-docs
+:url-repo: https://github.com/digita-ai/ui-transfer
 :page-tags: name of a tag, name of a tag
 
-This is the first line of the page body. 
+The goal of the UI Transfer project was to first identify data sharing patterns as tools to tackle legal considerations in a Solid environment and describe how these patterns can be technically implemented in a way that is compliant with the Solid specification. Next, to explain which (legal) considerations should be taken into account per context. Finally, to demonstrate the practical value and the applicability of the results by applying them to a diverse set of real-life cases.
+The legal framework is fully described in an extensive research report (https://go.digita.ai/reuse-patterns). The source code will be made available at https://github.com/digita-ai/ui-transfer-demo .
 
-== Section heading
+These pages contain the documentation of the Software Development Kit (SDK) to easily support several of those use cases. Note that the SDK is currently being developed with one specific use case in mind (use case 1 of the research report).
 
-This is a paragraph in a section.
-Hello world 2
+This project has received funding from the European Union’s H2020 research and innovation programme under Grant Agreement no 871498.

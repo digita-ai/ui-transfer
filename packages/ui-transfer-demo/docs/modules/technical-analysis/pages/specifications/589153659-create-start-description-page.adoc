@@ -1,55 +1,45 @@
-== Create description page
+= Create description page
+:description: A description of the page stored in an HTML meta tag.
+:sectanchors:
+:url-repo: https://github.com/digita-ai/ui-transfer
+:page-tags: name of a tag, name of a tag
 
-*Author(s)*
+.Author(s)
 
 * Stijn Taelemans
 
-*References*
+.References
 
 * https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=4%3A698[Functional
 analysis]
 * Branch: `feature/589151527-create-start-description-page`
 
-=== Introduction
+== Introduction
 
-==== Overview
+=== Overview
 
-This page gives a
-https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`person`]
-the choice to either
-https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#definitions[`authenticate`]
-using the
-https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`source`]’s
-identity provider, or to connect by using the
-https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#definitions[`data browser`]’s
-pod overview, which already has a connection with the pod’s identity
-provider. The latter need not be implemented in this specification, as
-it is part of the second flow.
+This page gives a `person` the choice to either `authenticate` using the `source`’s identity provider, or to connect by using the `data browser`’s pod overview, which already has a connection with the pod’s identity provider. The latter need not be implemented in this specification, as it is part of the second flow.
 
-==== Out of scope
+=== Out of scope
 
-The lower button activates the second flow. This flow is to be
-implemented at a later date.
+The lower button activates the second flow. This flow is to be implemented at a later date.
 
-==== Assumptions
+=== Assumptions
 
-https://www.wrike.com/open.htm?id=589151527[2.4.1.1 Create start landing
-page] is finished. Needed for displaying the component in the root page,
+https://www.wrike.com/open.htm?id=589151527[2.4.1.1 Create start landing page] is finished. Needed for displaying the component in the root page,
 which is created there.
 
-=== Solution
+== Solution
 
-==== Suggested or proposed solution
+=== Suggested or proposed solution
 
-===== Components
+==== Components
 
-Generate all components under the app.module.ts. No need for different
-modules per feature.
+Generate all components under the app.module.ts. No need for different modules per feature.
 
-Any components or pages in Figma are designed for mobile. When
-developing, use a window width of exactly 375px.
+Any components or pages in Figma are designed for mobile. When developing, use a window width of exactly 375px.
 
-*AppStartDescriptionPageComponent*
+.AppStartDescriptionPageComponent
 
 This page, much like the `AppStartLandingPageComponent`, should contain
 no more than a title, a brief description and a two buttons. The first
@@ -58,24 +48,13 @@ activates an alternative flow that will be implemented later. This
 button, currently, should do nothing. (navigate to `#') The component on
 its own should look similar to this:
 
-image::../../.gitbook/assets/descriptionpage.svg[AppStartDescriptionPageComponent]
+image::descriptionpage.svg[AppStartDescriptionPageComponent]
 
-Generate the `AppStartDescriptionPageComponent` under
-`DAPSI/src/app/pages` with filename and selector :
-`app-start-description-page`. The routing should be configured in
-`app.module.ts`, path `'login/success'` should load the
-`AppStartDescriptionPageComponent`. Make sure `pathMatch` is set to
-`'full'` Set the routing with
-`component: AppStartDescriptionPageComponent`.
+Generate the `AppStartDescriptionPageComponent` under `DAPSI/src/app/pages` with filename and selector : `app-start-description-page`. The routing should be configured in `app.module.ts`, path `'login/success'` should load the `AppStartDescriptionPageComponent`. Make sure `pathMatch` is set to `'full'` Set the routing with `component: AppStartDescriptionPageComponent`.
 
-The buttons should have the same styling as in the
-`AppStartLandingPageComponent`.
+The buttons should have the same styling as in the `AppStartLandingPageComponent`.
 
-Align styling with
-https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=4%3A698[Figma].
-See
-link:589153659-create-start-description-page.md#####AppStartDescriptionPageComponent[screenshot]
-above.
+Align styling with https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=4%3A698[Figma]. See link:589153659-create-start-description-page.md#####AppStartDescriptionPageComponent[screenshot] above.
 
 Unwanted Angular Material styling can be overwritten by using the
 correct selector: use `.mat-flat-button` to overwrite the button’s

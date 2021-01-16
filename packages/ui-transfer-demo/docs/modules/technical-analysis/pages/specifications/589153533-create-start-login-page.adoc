@@ -1,43 +1,43 @@
-== Create login page
+= Create login page
+:description: A description of the page stored in an HTML meta tag.
+:sectanchors:
+:url-repo: https://github.com/digita-ai/ui-transfer
+:page-tags: name of a tag, name of a tag
 
-*Author(s)*
+.Author(s)
 
 * Stijn Taelemans
 
-*References*
+.References
 
 * https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=3%3A0[Functional
 analysis]
 * Branch: `feature/589151527-create-start-login-page`
 
-=== Introduction
+== Introduction
 
-==== Overview
+=== Overview
 
-This component allows a
-https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`person`]
-to
-https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`authenticate`]
-with itsme or similar services.
+This component allows a `person`] to `authenticate` with itsme or similar services.
 
-==== Out of scope
+=== Out of scope
 
 The actual authentication does not have to be implemented. +
 Do not implement authentication via itsme or any other identity
 provider. Clicking one of the authentication buttons simply navigates to
 the next page.
 
-==== Assumptions
+=== Assumptions
 
 https://www.wrike.com/open.htm?id=589151527[2.4.1.1 Create start landing
 page] is finished. Needed for displaying the component in the root page,
 which is created there.
 
-=== Solution
+== Solution
 
-==== Suggested or proposed solution
+=== Suggested or proposed solution
 
-===== Components
+==== Components
 
 Generate all components under the app.module.ts. No need for different
 modules per feature.
@@ -45,14 +45,14 @@ modules per feature.
 Any components or pages in Figma are designed for mobile. When
 developing, use a window width of exactly 375px.
 
-*AppStartLoginPageComponent*
+.AppStartLoginPageComponent
 
 This page should contain no more than a title, a brief description and a
 few buttons that bring you to the `AppStartConnectPageComponent`,
 created in a later spec. +
 The component on its own should look similar to this:
 
-image::../../.gitbook/assets/loginPage.svg[AppStartLoginPageComponent]
+image::loginPage.svg[AppStartLoginPageComponent]
 
 Generate the `AppStartLoginPageComponent` under `DAPSI/src/app/pages`
 with filename and selector : `app-start-login-page`. The routing should
@@ -65,7 +65,7 @@ buttons will not be used anywhere else, there is no need to create a
 seperate component for these. +
 One button should look like this:
 
-image::../../.gitbook/assets/authenticateButton.svg[AuthenticateButton]
+image::authenticateButton.svg[AuthenticateButton]
 
 Align styling with
 https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=3%3A0[Figma].

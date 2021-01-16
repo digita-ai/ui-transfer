@@ -1,39 +1,36 @@
-== Create connect page
+= Create connect page
+:description: A description of the page stored in an HTML meta tag.
+:sectanchors:
+:url-repo: https://github.com/digita-ai/ui-transfer
+:page-tags: name of a tag, name of a tag
 
-*Author(s)*
+.Author(s)
 
 * Stijn Taelemans
 
-*References*
+.References
 
 * https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=3%3A1[Functional
 analysis]
 * Branch: `feature/589153830-create-connect-page`
 
-=== Introduction
+== Introduction
 
-==== Overview
+=== Overview
 
-This page shows a
-https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`person`]
-what information is required from their
-https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`source`].
-It is made clear to them that this personal information will be shared
-with the
-https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`recipient`]
-in the context of social allowances.
+This page shows a `person` what information is required from their `source`. It is made clear to them that this personal information will be shared with the `recipient` in the context of social allowances.
 
-==== Assumptions
+=== Assumptions
 
 https://www.wrike.com/open.htm?id=589151527[2.4.1.1 Create start landing
 page] is finished. Needed for displaying the component in the root page,
 which is created there.
 
-=== Solution
+== Solution
 
-==== Suggested or proposed solution
+=== Suggested or proposed solution
 
-===== Components
+==== Components
 
 Generate all components under the app.module.ts. No need for different
 modules per feature.
@@ -41,7 +38,7 @@ modules per feature.
 Any components or pages in Figma are designed for mobile. When
 developing, use a window width of exactly 375px.
 
-*AppConnectPage*
+.AppConnectPage
 
 Generate the `AppConnectPage` under `DAPSI/src/app/pages` with filename
 and selector : `app-connect-page`. The routing should be configured in
@@ -51,11 +48,11 @@ sure `pathMatch` is set to `'full'` Set the routing with
 
 The finished component should look like this:
 
-image::../../.gitbook/assets/connectpage.svg[AppConnectPage]
+image::connectpage.svg[AppConnectPage]
 
 Use `mat-divider`s for the horizontal divider lines. (pictured below)
 
-image::../../.gitbook/assets/divider.svg[Divider]
+image::divider.svg[Divider]
 
 Align styling with the
 link:589153830-create-connect-page.md#####AppConnectPage[screenshot]

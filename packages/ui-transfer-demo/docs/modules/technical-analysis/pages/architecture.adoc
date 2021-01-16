@@ -1,12 +1,16 @@
-== Architecture
+= Architecture
+:description: A description of the page stored in an HTML meta tag.
+:sectanchors:
+:url-repo: https://github.com/digita-ai/ui-transfer
+:page-tags: name of a tag, name of a tag
 
 The following diagram describes the architecture’s components and data
 flows. The architecture has been designed to support the demo’s
 link:../functional-analysis/user-stories.md[user stories].
 
-image::../.gitbook/assets/architecture.svg[Architecture diagram]
+image::architecture.svg[Architecture diagram]
 
-=== Components
+== Components
 
 [width="100%",cols="<50%,<50%",options="header",]
 |===
@@ -26,7 +30,7 @@ image::../.gitbook/assets/architecture.svg[Architecture diagram]
 identity and issue access tokens.
 |===
 
-=== Data flows
+== Data flows
 
 [width="100%",cols="<50%,<50%",options="header",]
 |===

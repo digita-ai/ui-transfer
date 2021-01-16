@@ -1,18 +1,22 @@
-== Create landing page
+= Create landing page
+:description: A description of the page stored in an HTML meta tag.
+:sectanchors:
+:url-repo: https://github.com/digita-ai/ui-transfer
+:page-tags: name of a tag, name of a tag
 
-*Author(s)*
+.Author(s)
 
 * Stijn Taelemans
 
-*References*
+.References
 
 * https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=3%3A0[Functional
 analysis]
 * Branch: `feature/589151527-create-start-landing-page`
 
-=== Introduction
+== Introduction
 
-==== Overview
+=== Overview
 
 This specification describes the landing page of the DAPSI project. This
 is the first page a user sees in the overall flow.
@@ -20,15 +24,15 @@ is the first page a user sees in the overall flow.
 This page does not feature much content, so it will be relatively simple
 to complete.
 
-==== Assumptions
+=== Assumptions
 
 All necessary packages are installed and ready to be used.
 
-=== Solution
+== Solution
 
-==== Suggested or proposed solution
+=== Suggested or proposed solution
 
-===== Components
+==== Components
 
 Generate all components under the app.module.ts. No need for different
 modules per feature.
@@ -36,14 +40,14 @@ modules per feature.
 Any components or pages in Figma are designed for mobile. When
 developing, use a window width of about 375px.
 
-*AppRootComponent*
+.AppRootComponent
 
 The landing page should contain the header (with logo and title) and
 also `<router-outlet></router-outlet>` to facilitate our pages which
 will be created later. +
 The component on its own should look similar to this:
 
-image::../../.gitbook/assets/landingpage.svg[AppRootComponent]
+image::landingpage.svg[AppRootComponent]
 
 The `AppRootComponent` has to be generated in client/app/root with
 filename and selector `app-root-component` . For the styling use
@@ -51,21 +55,19 @@ https://material.angular.io/components/toolbar/overview[`mat-toolbar`]
 for the header. Styling has to be alignes with the design in
 https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=3%3A0[Figma]
 
-And with the
-https://github.com/digita-ai/dapsi-docs/tree/f6a3ca41e6e9ee7a582f9ada93d810fa4811f81c/.gitbook/assets/landingpage.svg[screenshot]
-above.
+And with the screenshot above.
 
-*AppStartLandingPageComponent*
+.AppStartLandingPageComponent
 
 This page should contain no more than a title, a brief description and a
 button that brings you to the `AppStartLoginPageComponent`. +
 The component on its own should look similar to this:
 
-image::https://github.com/digita-ai/dapsi-docs/tree/f6a3ca41e6e9ee7a582f9ada93d810fa4811f81c/.gitbook/assets/landingPageContentOnly.svg[AppStartLandingPageComponent]
+image::landingPageContentOnly.svg[AppStartLandingPageComponent]
 
 In the rootpage this will give the following :
 
-image::https://github.com/digita-ai/dapsi-docs/tree/f6a3ca41e6e9ee7a582f9ada93d810fa4811f81c/.gitbook/assets/landingPageWithContent.svg[AppStartLandingPageComponent]
+image::landingPageWithContent.svg[AppStartLandingPageComponent]
 
 Generate the `AppStartLandingPageComponent` under `client/app/pages`
 with filename and selector : `app-start-landing-page`. The routing

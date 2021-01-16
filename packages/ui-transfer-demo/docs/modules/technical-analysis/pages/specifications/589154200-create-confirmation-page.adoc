@@ -1,43 +1,41 @@
-== Create confirmation page
+= Create confirmation page
+:description: A description of the page stored in an HTML meta tag.
+:sectanchors:
+:url-repo: https://github.com/digita-ai/ui-transfer
+:page-tags: name of a tag, name of a tag
 
-*Author(s)*
+.Author(s)
 
 * Stijn Taelemans
 
-*References*
+.References
 
 * https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=3%3A3[Functional
 analysis]
 * Branch: `feature/589154200-create-confirmation-page`
 
-=== Introduction
+== Introduction
 
-==== Overview
+=== Overview
 
 This page is the last step of the main flow. It confirms that everything
-works as it should and that the
-https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`person`]
-is (not) eligible for a social allowance.
+works as it should and that the `person` is (not) eligible for a social allowance.
 
-==== Assumptions
+=== Assumptions
 
-https://www.wrike.com/open.htm?id=589151527[2.4.1.1 Create start landing
-page] is finished. Needed for displaying the component in the root page,
-which is created there.
+https://www.wrike.com/open.htm?id=589151527[2.4.1.1 Create start landing page] is finished. Needed for displaying the component in the root page, which is created there.
 
-=== Solution
+== Solution
 
-==== Suggested or proposed solution
+=== Suggested or proposed solution
 
-===== Components
+==== Components
 
-Generate all components under the app.module.ts. No need for different
-modules per feature.
+Generate all components under the app.module.ts. No need for different modules per feature.
 
-Any components or pages in Figma are designed for mobile. When
-developing, use a window width of exactly 375px.
+Any components or pages in Figma are designed for mobile. When developing, use a window width of exactly 375px.
 
-*AppConnectConfirmationPage*
+.AppConnectConfirmationPage
 
 Generate the `AppConnectConfirmationPage` under `DAPSI/src/app/pages`
 with filename and selector : `app-connect-confirmation-page`. The
@@ -55,13 +53,9 @@ The button should have the same styling as in the
 
 The finished component should look like this:
 
-image::../../.gitbook/assets/confirmationpage.svg[AppConnectConfirmationPage]
+image::confirmationpage.svg[AppConnectConfirmationPage]
 
-Align styling with
-https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=4%3A698[Figma].
-See
-link:589154200-create-confirmation-page.md#####AppStartDescriptionPageComponent[screenshot]
-above.
+Align styling with https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=4%3A698[Figma]. See screenshot above. 
 
 Make sure you add https://github.com/ngx-translate/core[ngx-translate]
 for all the labels (title and description in this case). +

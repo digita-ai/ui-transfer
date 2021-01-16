@@ -1,27 +1,31 @@
-== Setup project
+= Setup project
+:description: A description of the page stored in an HTML meta tag.
+:sectanchors:
+:url-repo: https://github.com/digita-ai/ui-transfer
+:page-tags: name of a tag, name of a tag
 
-*Author(s)*
+.Author(s)
 
 * Stijn Taelemans
 
-*References*
+.References
 
 * https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=3%3A0[Functional
 analysi]
 * Branch: `feature/589151527-setup-angular-project`
 
-=== Introduction
+== Introduction
 
-==== Overview
+=== Overview
 
 this specification is about the initial setup and configuration of the
 Angular project.
 
-=== Solution
+== Solution
 
-==== Suggested or proposed solution
+=== Suggested or proposed solution
 
-===== Components
+==== Components
 
 For the Dapsi project we will generate a new Angular project using the
 latest version of Angular v10. Generate this new Angular project using

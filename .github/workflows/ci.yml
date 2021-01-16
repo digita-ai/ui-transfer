@@ -73,40 +73,40 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
 
-  deploy-prod:
-    needs: push
+  # deploy-prod:
+  #   needs: push
 
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/master'
 
-    steps:
-      - uses: actions/checkout@v2
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: get-npm-version
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@master
+  #     - name: get-npm-version
+  #       id: package-version
+  #       uses: martinbeentjes/npm-get-version-action@master
 
-      - name: 'Login via Azure CLI'
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+  #     - name: 'Login via Azure CLI'
+  #       uses: azure/login@v1
+  #       with:
+  #         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Log into registry
-        run: echo "${{ secrets.GA_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+  #     - name: Log into registry
+  #       run: echo "${{ secrets.GA_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Deploy to Azure Container Instances
-        uses: 'azure/aci-deploy@v1'
-        with:
-          resource-group: ${{ secrets.RESOURCE_GROUP }}
-          dns-name-label: ui-transfer-demo-prod
-          image: ghcr.io/digita-ai/ui-transfer-demo:${{steps.package-version.outputs.current-version}}
-          registry-login-server: ghcr.io
-          registry-username: ${{ secrets.GA_USERNAME }}
-          registry-password: ${{ secrets.GA_TOKEN }}
-          name: ui-transfer-demo-prod
-          location: 'west europe'
-          ports: 80
-          # ip-address: 'Private'
+  #     - name: Deploy to Azure Container Instances
+  #       uses: 'azure/aci-deploy@v1'
+  #       with:
+  #         resource-group: ${{ secrets.RESOURCE_GROUP }}
+  #         dns-name-label: ui-transfer-demo-prod
+  #         image: ghcr.io/digita-ai/ui-transfer-demo:${{steps.package-version.outputs.current-version}}
+  #         registry-login-server: ghcr.io
+  #         registry-username: ${{ secrets.GA_USERNAME }}
+  #         registry-password: ${{ secrets.GA_TOKEN }}
+  #         name: ui-transfer-demo-prod
+  #         location: 'west europe'
+  #         ports: 80
+  #         # ip-address: 'Private'
 
   deploy-develop:
     needs: push

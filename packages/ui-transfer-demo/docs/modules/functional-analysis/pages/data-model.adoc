@@ -1,0 +1,69 @@
+= Data model
+:description: A description of the data model used in the UI-Transfer Demo project.
+:sectanchors:
+:url-repo: https://github.com/digita-ai/ui-transfer-demo
+:page-tags: ui-transfer
+
+The following diagram describes the primary concepts in the demo.
+
+image::data-model.svg[Data model diagram]
+
+== Pay slip
+
+[width="100%",cols="<25%,<25%,<25%,<25%",options="header",]
+|===
+|Term |Cardinality |Data type |Example
+|`http://digita.ai/voc/pay-slip/employer` |One |Reference
+|`https://kbo.fgov.be/123456`
+
+|`http://digita.ai/voc/pay-slip/employee` |One |Reference
+|`https://mypod.be/john.doe/profile`
+
+|`http://digita.ai/voc/pay-slip/from` |One |Date |`2020-01-01`
+
+|`http://digita.ai/voc/pay-slip/until` |One |Date |`2020-01-31`
+
+|`http://digita.ai/voc/pay-slip/stature` |One |String |`Laborer`,
+`Clerk` or `Independent`
+
+|`http://digita.ai/voc/pay-slip/dependent` |One |Integer |`2`
+
+|`http://digita.ai/voc/pay-slip/wage-unit` |One |Reference
+|`http://digita.ai/voc/pay-slip/month`
+
+|`http://digita.ai/voc/pay-slip/gross-amount` |One |Decimal |`2598,12`
+
+|`http://digita.ai/voc/pay-slip/taxable-amount` |One |Decimal |`2598,12`
+
+|`http://digita.ai/voc/pay-slip/net-amount` |One |Decimal |`2598,12`
+|===
+
+== Proof of consent
+
+[width="100%",cols="<25%,<25%,<25%,<25%",options="header",]
+|===
+|Term |Cardinality |Data type |Example
+|`http://digita.ai/voc/consent/subject` |One |Reference
+|`https://mypod.be/john.doe/profile`
+
+|`http://digita.ai/voc/consent/controller` |One |Reference
+|`https://kbo.fgov.be/123456`
+
+|`http://digita.ai/voc/consent/for` |One or more |Reference
+|`https://kbo.fgov.be/purpose/marketing`
+
+|`http://digita.ai/voc/consent/created` |One |Date |`2020-10-03`
+
+|`http://digita.ai/voc/consent/expired` |One |Date |`2022-10-03`
+|===
+
+== Purpose
+
+[width="100%",cols="<25%,<25%,<25%,<25%",options="header",]
+|===
+|Term |Cardinality |Data type |Example
+|`http://digita.ai/voc/purpose/description` |One |String |`Marketing`
+
+|`http://digita.ai/voc/purpose/shape` |One or more |Reference
+|`https://kbo.fgov.be/shapes/pay-slip`
+|===

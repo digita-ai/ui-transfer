@@ -1,0 +1,28 @@
+== Security
+
+We distinguish three areas of security.
+
+[arabic]
+. Encryption
+. Authentication
+. Authorization
+
+=== Encryption
+
+The Hypertext Transfer Protocol Secure (HTTPS) for all communications
+between different applications. The protocol relies on the
+industry-standard Transport Layer Security (TLS) protocol for for
+end-to-end encryption between sender and receiver.
+
+=== Authentication
+
+A Person can request a digital token from an identity provider, which
+serves as proof of his identity. The token can be used when interacting
+with other applications. This way, the other application will have
+certainty about the Person’s identity.
+
+=== Authorization
+
+Solid Pods, such as the `source` and `recipient`, implement the Web
+Access Control (WAC) specification. This allows Pods to determine who
+can read, append, update or control specific pieces of data.

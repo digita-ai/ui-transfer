@@ -1,0 +1,5 @@
+name: ui-transfer
+version: 0.0.9
+nav:
+- modules/functional-analysis/nav.adoc  
+- modules/technical-analysis/nav.adoc 

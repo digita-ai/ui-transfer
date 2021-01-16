@@ -1,0 +1,130 @@
+= Requirements
+:description: A description of the scope of the UI-Transfer Demo project.
+:sectanchors:
+:url-repo: https://github.com/digita-ai/ui-transfer-demo
+:page-tags: ui-transfer
+
+== Definitions
+
+[width="100%",cols="<50%,<50%",options="header",]
+|===
+|Term |Definition
+|`authenticating` |The act of proving a `person`’s identity.
+
+|`client` |The `person`-facing application.
+
+|`data browser` |An application which can read and write `Personal data`
+from a `source`, as well as `grant access`;
+
+|`destination` |A legacy application which consumes `personal data`.
+
+|`downloading` |The act of digitally retrieving `personal data` from a
+`source`.
+
+|`feedback` |The output of processing `personal data` . In this demo,
+the `person` will be informed about the eligibility of a subsidy.
+
+|`grant access` |The act of modifying a `source`’s access control rules
+so that a `recipient` can read a specific resource.
+
+|`middleware` |An application which `downloads` `personal data` from a
+`source` and `uploads` it to a `destination`
+
+|`person` |A citizen who has access to one or more `sources`
+
+|`personal data` |The data exchanged between the source and recipient.
+In this demo, this will be limited to Income Data.
+
+|`proof of consent` |The proof that a `person` consented for a
+`purpose`.
+
+|`recipient` |A Solid Pod with which `personal data` is shared.
+
+|`source` |A Solid Pod which contains `personal data`.
+
+|`type of data` |A Linked Data Shape which describes a type of data.
+
+|`uploading` |The act of digitally storing `personal data` in a
+`destination`.
+|===
+
+== Assumptions
+
+* A `person` has access to one or more `sources` which already contain
+`personal data`.
+* A `person` has sufficient permissions on his `sources` to
+`grant access` to a `recipient`.
+* The `recipient` does not yet have access to the `sources`, nor are
+they known by the `middleware`.
+* The `destination` does not yet possess the `personal data` uploaded by
+the `middleware`.
+* The `destination` is relational database which support SQL-queries.
+* The `source` is a Node Solid Server.
+
+== Functional requirements
+
+=== Granting access to personal data
+
+[arabic]
+. As a `person`, I want to choose to `grant access` either via a
+`data browser` or by `authenticating`, so that I can re-use my
+`personal data`.
+. As a `person`, I want to know to what `type of data` I will
+`grant access`, so that I can decide if I want to `grant access` to this
+`type of data`.
+. As a `person`, I want to know to which `recipient` I am
+`granting access`, so that I can decide if I want to `grant access` to
+the `recipient`.
+. As a `person`, I want to choose a single `source` when
+`granting access` by `authenticating`, so that I can decide to which
+`source` the `recipient` `gains access`.
+. As a `person`, I want to `grant access` to the `recipient` by
+`authenticating` at the selected `source`, so that I can access
+`personal data` in the `source` from the `client`.
+. As a `person`, I want to my `data browser` to determine one or more
+`sources` which contain the `type of data` requested by the `recipient`,
+so that I don’t have to search for the `type of data` myself.
+. As a `person`, I want to be able to `grant access` to a specific
+`recipient` to one or more `sources` which contain a `type of data`, so
+that I don’t have to `grant access` to each `source` individually.
+. As a `person`, I want to store a `proof of consent` in the `source`
+and `recipient` when sharing `personal data`, so that I can proof what
+`type of data` was exchanged with which `recipient`.
+
+=== Downloading an consuming personal data
+
+[arabic]
+. As a `person`, I want to receive `feedback` based on the
+`personal data` that I shared with a `recipient`, so that I get a
+benefit from sharing `personal data`.
+. As a `middleware`, I want to `download` `personal data` from a
+`source`, so that I can `upload` it to a `destination`.
+. As a `middleware`, I want to `upload` `personal data` to a
+`destination`, so that the `destination` can use the `personal data`.
+
+== Non-functional requirements
+
+[arabic]
+. The demo environment will be described as a Docker Compose file.
+. The performance of the software artefacts needs to be adequate for a
+good user experience, but does not need to work at scale.
+. The quality of the software artefacts needs to be adequate for testing
+purposes, but does not need to be of production quality.
+. The software artefacts will be built by using technologies of Digita’s
+choice, and may include proprietary software development kits.
+. The software artefacts will be tested on a limited set of modern web
+browsers, such as Chrome and Firefox.
+. The software artefacts will be designed for a single resolution.
+
+== Out of scope
+
+[arabic]
+. Integrating any of the software artefacts with existing applications.
+. Providing mock data used in the demo environment.
+. Hosting an deploying the Docker images containing the software
+artefacts.
+. Internationalization of any of the software artefacts.
+. Performing any penetration (or other specialized security-related)
+tests.
+. Authentication with the Vlaamse Authenticatie Service.
+. Ensuring or validating the authenticity of exchanged data.

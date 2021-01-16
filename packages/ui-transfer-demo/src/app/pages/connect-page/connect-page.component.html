@@ -1,0 +1,62 @@
+<div fxLayout="column" fxLayoutGap="20px" *ngIf="session">
+    <h2 fxFlex>
+        {{ 'app.pages.connect-page.title' | translate }}
+    </h2>
+
+    <div fxFlex>
+        {{ 'app.pages.connect-page.description' | translate }}
+    </div>
+
+    <app-requested-data fxFlex text="{{ 'app.pages.connect-page.data-identity' | translate }}" prefixIcon="account_box"></app-requested-data>
+    <app-requested-data fxFlex text="{{ 'app.pages.connect-page.data-income' | translate }}" prefixIcon="euro_symbol"></app-requested-data>
+
+    <app-separator fxFlex>
+        {{ 'app.pages.connect-page.recipient' | translate }}
+    </app-separator>
+
+    <div fxFlex>
+        {{ 'app.pages.connect-page.recipient-description' | translate }}
+    </div>
+
+    <app-source>
+        <img src="assets/vlaanderen.png" />
+        <div class="source-header">Groeipakket</div>
+        <div class="source-sub-header">Lorem Ipsum</div>
+    </app-source>
+
+    <app-separator fxFlex>
+        {{ 'app.pages.connect-page.source' | translate }}
+    </app-separator>
+
+    <div fxFlex>
+        {{ 'app.pages.connect-page.source-description' | translate }}
+    </div>
+
+    <app-source fxFlex>
+        <img src="assets/sd-worx.svg" />
+        <div class="source-header">SD Worx</div>
+        <div class="source-sub-header">Lorem Ipsum</div>
+        <button (click)="connect(session, 'https://inrupt.net')">
+            <mat-icon aria-hidden="false">keyboard_arrow_right</mat-icon>
+        </button>
+    </app-source>
+
+    <app-source fxFlex>
+        <img src="assets/liantis.png" />
+        <div class="source-header">Liantis</div>
+        <div class="source-sub-header">Lorem Ipsum</div>
+        <button (click)="connect(session, 'https://inrupt.net')">
+            <mat-icon aria-hidden="false">keyboard_arrow_right</mat-icon>
+        </button>
+    </app-source>
+
+    <app-source fxFlex>
+        <img src="assets/acerta.png" />
+        <div class="source-header">Acerta</div>
+        <div class="source-sub-header">Lorem Ipsum</div>
+        <button (click)="connect(session, 'https://inrupt.net')">
+            <mat-icon aria-hidden="false">keyboard_arrow_right</mat-icon>
+        </button>
+    </app-source>
+
+</div>

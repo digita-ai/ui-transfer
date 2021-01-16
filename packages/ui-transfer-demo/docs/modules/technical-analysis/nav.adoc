@@ -1,0 +1,17 @@
+.Technical analysis
+* xref:architecture.adoc[Architecture]
+* xref:security.adoc[Security]
+* xref:specifications/README.adoc[Specifications]
+** xref:specifications/589207236-setup-angular-project.adoc[Setup
+project]
+** xref:specifications/589151527-create-start-landing-page.adoc[Create
+landing page]
+** xref:specifications/589153533-create-start-login-page.adoc[Create
+login page]
+** xref:specifications/589153659-create-start-description-page.adoc[Create
+description page]
+** xref:specifications/589153830-create-connect-page.adoc[Create
+connect page]
+** xref:specifications/589154200-create-confirmation-page.adoc[Create
+confirmation page]
+

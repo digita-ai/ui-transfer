@@ -1,0 +1,13 @@
+<div fxLayout="column" fxLayoutGap="20px">
+    <h2>
+        {{ 'app.pages.start-landing-page.title' | translate }}
+    </h2>
+    <!-- todo add i8n -->
+    <div class="content" fxFlex [innerHTML]="'app.pages.start-landing-page.description' | translate">
+        
+    </div>
+    <button class="icon-left" mat-flat-button color="accent" [routerLink]="['/login']">
+        <mat-icon fontSet="material-icons-outlined">account_box</mat-icon>
+        {{ 'app.pages.start-landing-page.button' | translate }}
+    </button>
+</div>

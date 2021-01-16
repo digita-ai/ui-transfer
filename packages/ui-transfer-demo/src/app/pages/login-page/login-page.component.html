@@ -1,0 +1,30 @@
+<div fxLayout="column" fxLayoutGap="20px">
+    <h2>
+        {{ 'app.pages.start-login-page.title' | translate }}
+    </h2>
+
+    <div class="content" fxFlex>
+        {{ 'app.pages.start-login-page.description' | translate }}
+    </div>
+
+    <app-login-button
+        description="{{ 'app.pages.start-login-page.itsme' | translate }}"
+        imgpath="assets/itsme.svg"
+    >
+    </app-login-button>
+    <app-login-button
+        description="{{ 'app.pages.start-login-page.eid' | translate }}"
+        imgpath="assets/eid.svg"
+    >
+    </app-login-button>
+    <app-login-button
+        description="{{ 'app.pages.start-login-page.token' | translate }}"
+        imgpath="assets/token.svg"
+    >
+    </app-login-button>
+    <app-login-button
+        description="{{ 'app.pages.start-login-page.mobile-app' | translate }}"
+        imgpath="assets/mobileapp.svg"
+    >
+    </app-login-button>
+</div>

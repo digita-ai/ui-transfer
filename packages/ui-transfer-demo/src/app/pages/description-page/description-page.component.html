@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutGap="20px">
+    <h2 fxFlex>
+        {{ 'app.pages.start-description-page.title' | translate }}
+    </h2>
+    <!-- todo add i8n -->
+    <div class="content" fxFlex [innerHTML]="'app.pages.start-description-page.description' | translate">
+    </div>
+    <button class="icon-left" fxFlex="initial" mat-flat-button color="accent" [routerLink]="['/connect']">
+        <mat-icon>sync_alt</mat-icon>
+        {{ 'app.pages.start-description-page.connect' | translate }}
+    </button>
+
+    <div fxFlex="27px" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+        <hr fxFlex="grow">
+        <div fxFlex="initial">{{ 'app.pages.start-description-page.or' | translate }}</div>
+        <hr fxFlex="grow">
+    </div>
+
+    <button class="icon-left" fxFlex="initial" mat-flat-button color="accent">
+        <mat-icon>launch</mat-icon>
+        {{ 'app.pages.start-description-page.open' | translate }}
+    </button>
+</div>

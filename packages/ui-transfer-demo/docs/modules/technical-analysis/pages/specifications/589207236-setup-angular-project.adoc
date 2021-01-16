@@ -1,0 +1,87 @@
+== Setup project
+
+*Author(s)*
+
+* Stijn Taelemans
+
+*References*
+
+* https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=3%3A0[Functional
+analysi]
+* Branch: `feature/589151527-setup-angular-project`
+
+=== Introduction
+
+==== Overview
+
+this specification is about the initial setup and configuration of the
+Angular project.
+
+=== Solution
+
+==== Suggested or proposed solution
+
+===== Components
+
+For the Dapsi project we will generate a new Angular project using the
+latest version of Angular v10. Generate this new Angular project using
+the latest version of the angular CLI (command line interface). To
+achieve this follow the instructions on
+https://angular.io/cli/new[Generate a new Angular project].
+
+Install `ngx-translate` according to the
+https://github.com/ngx-translate/core[tutorial on Github]. Add
+`import { TranslateModule, TranslateLoader } from '@ngx-translate/core';`
+to the app module and follow the installation instructions on the github
+page above.
+
+Add NgRx to the project. `ng add @ngrx/store@latest` follow the tutorial
+on https://ngrx.io/guide/store/install[NgRx]. Also configure
+`StoreModule` and `DevtoolsModule`, register these two in AppModule’s
+`imports`. Create necessary effect, reducer and action files (following
+https://ngrx.io/docs[NgRx documentation]). Add Angular material to the
+project using `ng add @angular/material` and follow the tutorial on
+https://material.angular.io/guide/getting-started[angular.io]. Choose
+custom theme, set up global Angular Material typography styles and set
+up browser animations for Angular Material.
+
+Create the custom theme using the instructions on
+https://material.angular.io/guide/theming[angular.io]. The colors can be
+found on the functional analysis and are listed here shortly :
+
+[source,text]
+----
+vlaanderen primary : #FFE615
+vlaanderen foreground normal : #333332
+vlaanderen accent : #0055CC
+sd works : #7C2855
+----
+
+There are some necessary `Modules` you should add in the `AppModule`’s
+imports. Add the following :
+
+[source,text]
+----
+    FlexLayoutModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatDividerModule,
+    StoreRouterConnectingModule.forRoot(),
+    StoreModule.forRoot({ dapsi: dapsiReducer }, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+----
+
+The remaining 2 tasks are a custom webpack builder and connecting the
+router store, part of this is done with the correct imports like above.
+Please follow the tutorials on
+https://www.npmjs.com/package/@angular-builders/custom-webpack[Custom
+webpack builder] and https://ngrx.io/guide/router-store/install[Router
+store].
+
+This list might not cover all necessary steps to get the project up and
+running. It contains the things that I think we will need later, but I
+probably did not think of everything.

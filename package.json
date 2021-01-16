@@ -1,0 +1,38 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "bootstrap": "npm ci && ./node_modules/.bin/lerna bootstrap --ignore-prepublish",
+    "build": "./node_modules/.bin/lerna run build",
+    "lint": "./node_modules/.bin/lerna run lint --parallel",
+    "lint:fix": "./node_modules/.bin/lerna run lint:fix --parallel",
+    "start": "./node_modules/.bin/lerna run start --parallel",
+    "serve": "./node_modules/.bin/lerna run serve --parallel",
+    "test": "./node_modules/.bin/lerna run test --parallel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digita-ai/ui-transfer.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run bootstrap && npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "homepage": "https://github.com/digita-ai/ui-transfer#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/config-lerna-scopes": "^11.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.16.0",
+    "husky": "^4.3.6",
+    "lerna": "^3.22.1",
+    "typescript": "^4.1.3"
+  }
+}

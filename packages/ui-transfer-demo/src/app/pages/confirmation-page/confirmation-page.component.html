@@ -1,0 +1,36 @@
+<div fxLayout="column" fxLayoutGap="20px" *ngIf="name">
+    <h2 fxFlex>
+        Hallo, {{this.name}}
+    </h2>
+
+    <p fxFlex>{{ 'app.pages.confirmation.description' | translate }}</p>
+
+    <div fxFlex="initial" fxLayout="row" fxLayoutGap="10px" class="result" fxLayoutAlign="start center">
+        <mat-icon *ngIf="allowanceSuccess && netAmountAvailable" fxFlex="40px" id="netamount-check">
+            check_circle_outline
+        </mat-icon>
+        <mat-icon *ngIf="!netAmountAvailable" fxFlex="40px" id="netamount-not-found">
+            build
+        </mat-icon>
+        <mat-icon *ngIf="!allowanceSuccess && netAmountAvailable" fxFlex="40px" id="netamount-declined">
+            report_problem
+        </mat-icon>
+        <div *ngIf="allowanceSuccess && netAmountAvailable" fxFlex>
+            {{ 'app.pages.confirmation.allowance-success' | translate }}
+        </div>
+        <div *ngIf="!netAmountAvailable" fxFlex>
+            {{ 'app.pages.confirmation.allowance-netamount-not-found' | translate }}
+        </div>
+        <div *ngIf="!allowanceSuccess && netAmountAvailable" fxFlex>
+            {{ 'app.pages.confirmation.allowance-declined' | translate }}
+        </div>
+    </div>
+
+    <p fxFlex>{{ 'app.pages.confirmation.submit-request' | translate }}</p>
+
+    <button class="icon-left" fxFlex mat-flat-button color="accent" [routerLink]="['']" [disabled]="!this.allowanceSuccess">
+        <mat-icon fontSet="material-icons-outlined">description</mat-icon>
+        {{ 'app.pages.confirmation.btn-submit-request' | translate }}
+    </button>
+
+</div>

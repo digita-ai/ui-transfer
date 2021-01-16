@@ -1,0 +1,48 @@
+{
+    "header": {
+        "title": "Vlaanderen"
+    },
+    "app": {
+        "pages": {
+            "start-landing-page": {
+                "description": "Elk kind dat in Vlaanderen is gedomicilieerd heeft onvoorwaardelijk recht op een Groeipakket tot en met de maand waarin het 18 jaar wordt.<br /><br />Meld je aan om een <a href='https://www.vlaanderen.be/de-sociale-toeslag-groeipakket'>sociale toelage</a> aan te vragen.",
+                "title": "Groeipakket",
+                "button": "Aanmelden"
+            },
+            "confirmation" : {
+                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum metus id venenatis imperdiet.",
+                "title" : "Sociale Toelage",
+                "submit-request" : "Klik hieronder om je aanvraag digitaal in te dienen",
+                "btn-submit-request" : "Aanvraag indienen",
+                "allowance-success" : "U komt in aanmerking voor een sociale toelage",
+                "allowance-declined" : "Uw netto inkomen is te hoog om in aanmerking te komen voor een sociale toelage",
+                "allowance-netamount-not-found" : "Er werden geen loonbriefjes teruggevonden"
+            },
+            "connect-page": {
+                "title": "Gegevens uitwisselen",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum metus id venenatis imperdiet.",
+                "recipient": "Recipient",
+                "recipient-description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum metus id venenatis imperdiet.",
+                "source": "Source",
+                "source-description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum metus id venenatis imperdiet.",
+                "data-identity": "Identiteit",
+                "data-income": "Inkomen"
+            },
+            "start-description-page": {
+                "title": "Sociale Toelage",
+                "description": "Kinderen uit gezinnen met een laag inkomen en geboren na 1 januari 2019 kunnen een sociale toeslag krijgen. De sociale toeslag ontvangt u elke maand bovenop het <a href='https://www.vlaanderen.be/basisbedrag-groeipakket'>basisbedrag</a> van het Groeipakket.<br/><br/>Deel je loonsgegevens, en kom te weten of je in aanmerking komt.",
+                "or": "of",
+                "connect": "Verbinden",
+                "open": "Openen met data browser"
+            },
+            "start-login-page" : {
+                "title": "Aanmelden",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum metus id venenatis imperdiet.",
+                "itsme": "itsme",
+                "eid": "eID kaartlezer",
+                "token": "Beveiligingscode via token",
+                "mobile-app": "Beveiligingscode via mobiele app"
+            }
+        }
+    }
+}

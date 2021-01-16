@@ -1,0 +1,55 @@
+== Architecture
+
+The following diagram describes the architecture’s components and data
+flows. The architecture has been designed to support the demo’s
+link:../functional-analysis/user-stories.md[user stories].
+
+image::../.gitbook/assets/architecture.svg[Architecture diagram]
+
+=== Components
+
+[width="100%",cols="<50%,<50%",options="header",]
+|===
+|Component |Description
+|`person` |A citizen who has access to one or more `sources`
+
+|`source` |A Solid Pod which contains `personal data`.
+
+|`recipient` |A Solid Pod with which `personal data` is shared.
+
+|`middleware` |An application which `downloads` `personal data` from a
+`source` and `uploads` it to a `destination`
+
+|`destination` |A legacy application which consumes `personal data`.
+
+|`identity provider` |An application which can verify a `Person's`
+identity and issue access tokens.
+|===
+
+=== Data flows
+
+[width="100%",cols="<50%,<50%",options="header",]
+|===
+|Flow |Description
+|1. Authenticate Client |The `Person` proves his identity to the
+`Identity Provider` and gets and access token in return.
+
+|2. Grant access |The `Client` modifies the `Source` ’s access control
+rules so that the `Recipient` is granted access to the `Personal Data`.
+
+|3. Notify |The `Client` notifies the `Recipient` once access has been
+granted. It does so by uploading a `Notification`, which includes a
+`Concent`.
+
+|4. Authenticate Middleware |The `Middleware` authenticates as the
+`Recipient` and retrieves an access token.
+
+|5. Read inbox |The `Middleware` retrieves the `Notifications` from the
+`Recipient's` inbox.
+
+|6. Download data |The `Middleware` downloads `Personal Data` from the
+`Source` by using the `Recipient's` access token.
+
+|7. Upload data |The `Middleware` `uploads` the `Personal Data` to the
+`Destination`.
+|===

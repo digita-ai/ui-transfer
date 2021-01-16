@@ -1,0 +1,134 @@
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+// @import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+$font-size-small: 14px;
+$font-size-normal: 16px;
+$font-size-large: 28px;
+
+$custom-typography: mat-typography-config(
+  $font-family: "Open Sans, monospace",
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level($font-size-normal, 27px, 500),
+);
+
+@include mat-core($custom-typography);
+
+$measure-gap-normal: 20px;
+
+$vlaanderen-light-grey: #B4B4B4;
+$vlaanderen-grey: #333332;
+$vlaanderen-white: #fff;
+$vlaanderen-blue: #0055cc;
+
+$vlaanderen-primary: (
+  500: #ffe615,
+  100: #ffec44,
+  700: #ffe600,
+  contrast: (
+    500: $vlaanderen-grey,
+    100: $vlaanderen-grey,
+    700: $vlaanderen-grey,
+  ),
+);
+$vlaanderen-foreground-normal: (
+  500: #333332,
+  100: #333332,
+  700: #333332,
+  contrast: (
+    500: $vlaanderen-white,
+    100: $vlaanderen-white,
+    700: $vlaanderen-white,
+  ),
+);
+$vlaanderen-accent: (
+  500: #0055cc,
+  100: #0055cc,
+  700: #0055cc,
+  contrast: (
+    500: $vlaanderen-white,
+    100: $vlaanderen-white,
+    700: $vlaanderen-white,
+  ),
+);
+$sd-works-primary: (
+  500: #7c2855,
+  100: #7c2855,
+  700: #7c2855,
+  contrast: (
+    500: $vlaanderen-white,
+    100: $vlaanderen-white,
+    700: $vlaanderen-white,
+  ),
+);
+
+$vlaanderen-primary-palette: mat-palette($vlaanderen-primary);
+$vlaanderen-accent-palette: mat-palette($vlaanderen-accent);
+
+$vlaanderen-theme: mat-light-theme(
+  (
+    color: (
+      primary: $vlaanderen-primary-palette,
+      accent: $vlaanderen-accent-palette,
+    ),
+  )
+);
+
+@include angular-material-theme($vlaanderen-theme);
+
+html,
+body {
+  height: 100%;
+  color: $vlaanderen-grey;
+}
+
+body {
+  margin: 0;
+  margin-bottom: 20px;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+a.mat-flat-button, button.mat-flat-button {
+  border-radius: 0px;
+}
+
+h1 {
+  font-size: $font-size-normal;
+  font-weight: bold;
+  color: $vlaanderen-grey;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: $font-size-large;
+  line-height: 38px;
+  color: $vlaanderen-grey;
+  font-weight: bold;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: $font-size-small;
+  margin: 0px;
+}
+
+app-source img {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+button.icon-left {
+  padding: 0 6px;
+  mat-icon {
+    float: left;
+    padding-top: 6px;
+  }
+}
+
+a, a:visited {
+  color: $vlaanderen-blue;
+}

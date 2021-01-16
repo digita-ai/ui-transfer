@@ -1,0 +1,144 @@
+name: Docker
+
+on:
+  push:
+    # Publish `master` as Docker `latest` image.
+    branches:
+      - feature/*
+      - develop
+      - master
+
+    # Publish `v1.2.3` tags as releases.
+    # tags:
+      # - v*
+
+  # Run tests for any PRs.
+  # pull_request:
+
+env:
+  # TODO: Change variable to your image's name.
+  IMAGE_NAME: ui-transfer-demo
+
+jobs:
+  # Run tests.
+  # See also https://docs.docker.com/docker-hub/builds/automated-testing/
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm run bootstrap
+      - run: npm run lint
+      - run: npm test
+
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  push:
+    # Ensure test job passes before pushing image.
+    needs: test
+
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: Log into registry
+        run: echo "${{ secrets.GA_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build image
+        run: docker build --tag $IMAGE_NAME packages/ui-transfer-demo/
+
+      - name: Push image
+        run: |
+          IMAGE_ID=ghcr.io/digita-ai/$IMAGE_NAME
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          # Strip git ref prefix from version
+          # VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          VERSION=${{steps.package-version.outputs.current-version}}
+          # Strip "v" prefix from tag name
+          # [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          # Use Docker `latest` tag convention
+          # [ "$VERSION" == "master" ] && VERSION=latest
+          echo IMAGE_ID=$IMAGE_ID
+          echo VERSION=$VERSION
+          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION
+
+  deploy-prod:
+    needs: push
+
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: 'Login via Azure CLI'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Log into registry
+        run: echo "${{ secrets.GA_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Deploy to Azure Container Instances
+        uses: 'azure/aci-deploy@v1'
+        with:
+          resource-group: ${{ secrets.RESOURCE_GROUP }}
+          dns-name-label: ui-transfer-demo-prod
+          image: ghcr.io/digita-ai/ui-transfer-demo:${{steps.package-version.outputs.current-version}}
+          registry-login-server: ghcr.io
+          registry-username: ${{ secrets.GA_USERNAME }}
+          registry-password: ${{ secrets.GA_TOKEN }}
+          name: ui-transfer-demo-prod
+          location: 'west europe'
+          ports: 80
+          # ip-address: 'Private'
+
+  deploy-develop:
+    needs: push
+
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: 'Login via Azure CLI'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Log into registry
+        run: echo "${{ secrets.GA_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Deploy to Azure Container Instances
+        uses: 'azure/aci-deploy@v1'
+        with:
+          resource-group: ${{ secrets.RESOURCE_GROUP }}
+          dns-name-label: ui-transfer-demo-develop
+          image: ghcr.io/digita-ai/ui-transfer-demo:${{steps.package-version.outputs.current-version}}
+          registry-login-server: ghcr.io
+          registry-username: ${{ secrets.GA_USERNAME }}
+          registry-password: ${{ secrets.GA_TOKEN }}
+          name: ui-transfer-demo-develop
+          location: 'west europe'
+          ports: 80
+          # ip-address: 'Private'

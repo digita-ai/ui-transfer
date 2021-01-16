@@ -1,0 +1,77 @@
+== Create connect page
+
+*Author(s)*
+
+* Stijn Taelemans
+
+*References*
+
+* https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=3%3A1[Functional
+analysis]
+* Branch: `feature/589153830-create-connect-page`
+
+=== Introduction
+
+==== Overview
+
+This page shows a
+https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`person`]
+what information is required from their
+https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`source`].
+It is made clear to them that this personal information will be shared
+with the
+https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`recipient`]
+in the context of social allowances.
+
+==== Assumptions
+
+https://www.wrike.com/open.htm?id=589151527[2.4.1.1 Create start landing
+page] is finished. Needed for displaying the component in the root page,
+which is created there.
+
+=== Solution
+
+==== Suggested or proposed solution
+
+===== Components
+
+Generate all components under the app.module.ts. No need for different
+modules per feature.
+
+Any components or pages in Figma are designed for mobile. When
+developing, use a window width of exactly 375px.
+
+*AppConnectPage*
+
+Generate the `AppConnectPage` under `DAPSI/src/app/pages` with filename
+and selector : `app-connect-page`. The routing should be configured in
+`app.module.ts`, path `'connect'` should load the `AppConnectPage`. Make
+sure `pathMatch` is set to `'full'` Set the routing with
+`component: AppConnectPage`.
+
+The finished component should look like this:
+
+image::../../.gitbook/assets/connectpage.svg[AppConnectPage]
+
+Use `mat-divider`s for the horizontal divider lines. (pictured below)
+
+image::../../.gitbook/assets/divider.svg[Divider]
+
+Align styling with the
+link:589153830-create-connect-page.md#####AppConnectPage[screenshot]
+above.
+
+Make sure you add https://github.com/ngx-translate/core[ngx-translate]
+for all the labels (title and description in this case).
+
+Use the existing translation file at `src/translations/nl-BE.json` and
+add translations for the title, subtitle and other descriptions.
+
+* `app.pages.connect-success-page.title`
+* `app.pages.connect-success-page.subtitle`
+* `app.pages.connect-success-page.data-identity`
+* `app.pages.connect-success-page.data-income`
+* `app.pages.connect-success-page.recipient`
+* `app.pages.connect-success-page.recipient-description`
+* `app.pages.connect-success-page.source`
+* `app.pages.connect-success-page.source-description`

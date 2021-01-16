@@ -1,0 +1,80 @@
+== Create confirmation page
+
+*Author(s)*
+
+* Stijn Taelemans
+
+*References*
+
+* https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=3%3A3[Functional
+analysis]
+* Branch: `feature/589154200-create-confirmation-page`
+
+=== Introduction
+
+==== Overview
+
+This page is the last step of the main flow. It confirms that everything
+works as it should and that the
+https://github.com/digita-ai/dapsi-docs/tree/release/Specifications/Functional%20Specifications#personas[`person`]
+is (not) eligible for a social allowance.
+
+==== Assumptions
+
+https://www.wrike.com/open.htm?id=589151527[2.4.1.1 Create start landing
+page] is finished. Needed for displaying the component in the root page,
+which is created there.
+
+=== Solution
+
+==== Suggested or proposed solution
+
+===== Components
+
+Generate all components under the app.module.ts. No need for different
+modules per feature.
+
+Any components or pages in Figma are designed for mobile. When
+developing, use a window width of exactly 375px.
+
+*AppConnectConfirmationPage*
+
+Generate the `AppConnectConfirmationPage` under `DAPSI/src/app/pages`
+with filename and selector : `app-connect-confirmation-page`. The
+routing should be configured in `app.module.ts`, path
+`'connect/success'` should load the `AppConnectConfirmationPage`. Make
+sure `pathMatch` is set to `'full'` Set the routing with
+`component: AppConnectConfirmationPage`.
+
+This component features mostly text. Use `<h1>` and `<p>` tags for the
+title and paragraphs, respectively.
+
+The button should have the same styling as in the
+`AppStartLandingPageComponent`. When clicked, does nothing. (navigate to
+`#')
+
+The finished component should look like this:
+
+image::../../.gitbook/assets/confirmationpage.svg[AppConnectConfirmationPage]
+
+Align styling with
+https://www.figma.com/file/7G6VzJ3AKWFg7dJQ2AcLEd/Dapsi?node-id=4%3A698[Figma].
+See
+link:589154200-create-confirmation-page.md#####AppStartDescriptionPageComponent[screenshot]
+above.
+
+Make sure you add https://github.com/ngx-translate/core[ngx-translate]
+for all the labels (title and description in this case). +
+Add
+`import { TranslateModule, TranslateLoader } from '@ngx-translate/core';`
+to the app module and follow the installation instructions on the github
+page above.
+
+Use the existing translation file at `src/translations/nl-BE.json` and
+add translations for the title, subtitle and button descriptions.
+
+* `app.pages.connect-success-page.title`
+* `app.pages.connect-success-page.subtitle`
+* `app.pages.connect-success-page.allowance-success`
+* `app.pages.connect-success-page.submit-request`
+* `app.pages.connect-success-page.btn-submit-request`

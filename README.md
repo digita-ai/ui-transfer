@@ -1,6 +1,6 @@
 # UI-Transfer
 
-[![Build Status](https://github.com/solid/community-server/workflows/CI/badge.svg)](https://github.com/solid/community-server/actions)
+[![Build Status](https://github.com/digita-ai/ui-transfer/workflows/CI/badge.svg)](https://github.com/digita-ai/ui-transfer/actions)
 
 The goal of the UI Transfer project was to first identify data sharing patterns as tools to tackle legal considerations in a Solid environment and describe how these patterns can be technically implemented in a way that is compliant with the Solid specification. Next, to explain which (legal) considerations should be taken into account per context. Finally, to demonstrate the practical value and the applicability of the results by applying them to a diverse set of real-life cases.
 
